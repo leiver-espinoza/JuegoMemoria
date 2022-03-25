@@ -104,7 +104,10 @@ function crear_ficha(parent, id, valor) {
 function mostrar(ficha) {
     // Se busca la segunda clase en el objeto ficha, el cual corresponde al número asignado a la ficha
     if (!procesando) {
+        // Se dividen las clases utilizando el espacio y se toma el elemento en la posición 1, que corresponde al número
+        // de la ficha
         var valorFicha = $('#' + ficha.id).attr('class').split(' ')[1].substring(1);
+
         if (ficha1 == "") {
             ficha1 = ficha;
             $('#' + ficha1.id).text(valorFicha);
@@ -142,7 +145,6 @@ function revolver(valores) {
 
 function validarJuegoTerminado() {
     var fichasPendientes = $('.ficha').length;
-    console.log("Pendientes: " + fichasPendientes);
     $('#contador_fichas').text("Pendientes: " + fichasPendientes);
     if (fichasPendientes == 0) {
         $('#nivel_completado').show();
